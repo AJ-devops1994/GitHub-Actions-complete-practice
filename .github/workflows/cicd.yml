@@ -3,6 +3,17 @@ name: CICD
 #user will run the workflow manually whenever required
 on:
   workflow_dispatch:
+    inputs:
+      environment: 
+        description: this is the environment value where this workflow runs
+        default: 'dev'
+        required: true
+        type: choice
+        options:
+          - dev
+          - prod
+          - staging
+          - 
 jobs:
     code:
       runs-on: ubuntu-latest
